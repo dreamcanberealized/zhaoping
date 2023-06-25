@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>数据展示</title>
+    <style>
+        /* 自定义样式，根据需要进行修改 */
+        .data-item {
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+  <h1>MongoDB 数据可视化</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Year</th>
+                <th>Xueli</th>
+                <th>Zhiwei</th>
+                <th>Gongsi</th>
+                <th>Xingzhi</th>
+                <th>Peoples</th>
+                <th>Money</th>
+                <th>Content</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in data %}
+            <tr class="data-row">
+                <td>{{ item.name }}</td>
+                <td>{{ item.year }}</td>
+                <td>{{ item.xueli }}</td>
+                <td>{{ item.zhiwei }}</td>
+                <td>{{ item.gongsi }}</td>
+                <td>{{ item.xingzhi }}</td>
+                <td>{{ item.peoples }}</td>
+                <td>{{ item.money }}</td>
+                <td>{{ item.content }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="pagination">
+        {% if current_page > 1 %}
+            <a href="/?page={{ current_page-1 }}">上一页</a>
+        {% endif %}
+
+        <!-- 添加其他按钮 -->
+        <a href="/gangwei">岗位</a>
+        <a href="/job">薪资分布</a>
+        <a href="/money">多维度</a>
+        <a href="/city_stats">城市top20</a>
+        {% if current_page < total_pages %}
+            <a href="/?page={{ current_page + 1 }}">下一页</a>
+        {% endif %}
+
+        <a href="/?page={{ total_pages }}">最后一页</a>
+    </div>
+</body>
+</html>

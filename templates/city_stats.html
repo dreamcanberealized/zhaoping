@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MongoDB 招聘热门城市统计</title>
+</head>
+<body>
+    <h1>招聘热门城市统计</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>排名</th>
+                <th>城市名称</th>
+                <th>招聘数量</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for city in city_stats %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ city._id }}</td>
+                <td>{{ city.count }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
